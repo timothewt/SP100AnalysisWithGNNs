@@ -1,0 +1,2 @@
+# S&P100 Analysis with Graph Neural Networks
+This project aims to analyze the S&P100 stocks, 100 leading U.S. stocks by market capitalization, using Graph Neural Networks (GNNs). The project is divided into two main parts: data collection and analysis. The data collection part involves collecting historical stock price data for the S&P100 stocks, while the analysis part involves building a GNN model to predict stock prices and cluster stocks.
