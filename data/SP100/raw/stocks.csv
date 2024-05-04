@@ -1,0 +1,101 @@
+Symbol,Name,Sector
+AAPL,Apple,Information Technology
+ABBV,AbbVie,Health Care
+ABT,Abbott Laboratories,Health Care
+ACN,Accenture,Information Technology
+ADBE,Adobe,Information Technology
+AIG,American International Group,Financials
+AMD,AMD,Information Technology
+AMGN,Amgen,Health Care
+AMT,American Tower,Real Estate
+AMZN,Amazon,Consumer Discretionary
+AVGO,Broadcom,Information Technology
+AXP,American Express,Financials
+BA,Boeing,Industrials
+BAC,Bank of America,Financials
+BK,BNY Mellon,Financials
+BKNG,Booking Holdings,Consumer Discretionary
+BLK,BlackRock,Financials
+BMY,Bristol Myers Squibb,Health Care
+BRK-B,Berkshire Hathaway (Class B),Financials
+C,Citigroup,Financials
+CAT,Caterpillar,Industrials
+CHTR,Charter Communications,Communication Services
+CL,Colgate-Palmolive,Consumer Staples
+CMCSA,Comcast,Communication Services
+COF,Capital One,Financials
+COP,ConocoPhillips,Energy
+COST,Costco,Consumer Staples
+CRM,Salesforce,Information Technology
+CSCO,Cisco,Information Technology
+CVS,CVS Health,Health Care
+CVX,Chevron,Energy
+DE,Deere & Company,Industrials
+DHR,Danaher,Health Care
+DIS,Disney,Communication Services
+DOW,Dow,Materials
+DUK,Duke Energy,Utilities
+EMR,Emerson,Industrials
+F,Ford,Consumer Discretionary
+FDX,FedEx,Industrials
+GD,General Dynamics,Industrials
+GE,GE Aerospace,Industrials
+GILD,Gilead,Health Care
+GM,General Motors,Consumer Discretionary
+GOOGL,Alphabet,Communication Services
+GS,Goldman Sachs,Financials
+HD,Home Depot,Consumer Discretionary
+HON,Honeywell,Industrials
+IBM,IBM,Information Technology
+INTC,Intel,Information Technology
+INTU,Intuit,Information Technology
+JNJ,Johnson & Johnson,Health Care
+JPM,JPMorgan Chase,Financials
+KHC,Kraft Heinz,Consumer Staples
+KO,Coca-Cola,Consumer Staples
+LIN,Linde,Materials
+LLY,Lilly,Health Care
+LMT,Lockheed Martin,Industrials
+LOW,Lowe's,Consumer Discretionary
+MA,Mastercard,Information Technology
+MCD,McDonald's,Consumer Discretionary
+MDLZ,MondelÄz International,Consumer Staples
+MDT,Medtronic,Health Care
+MET,MetLife,Financials
+META,Meta,Communication Services
+MMM,3M,Industrials
+MO,Altria,Consumer Staples
+MRK,Merck,Health Care
+MS,Morgan Stanley,Financials
+MSFT,Microsoft,Information Technology
+NEE,NextEra Energy,Utilities
+NFLX,Netflix,Communication Services
+NKE,Nike,Consumer Discretionary
+NVDA,Nvidia,Information Technology
+ORCL,Oracle,Information Technology
+PEP,PepsiCo,Consumer Staples
+PFE,Pfizer,Health Care
+PG,Procter & Gamble,Consumer Staples
+PM,Philip Morris International,Consumer Staples
+PYPL,PayPal,Information Technology
+QCOM,Qualcomm,Information Technology
+RTX,RTX Corporation,Industrials
+SBUX,Starbucks,Consumer Discretionary
+SCHW,Charles Schwab,Financials
+SO,Southern Company,Utilities
+SPG,Simon Property Group,Real Estate
+T,AT&T,Communication Services
+TGT,Target,Consumer Discretionary
+TMO,Thermo Fisher Scientific,Health Care
+TMUS,T-Mobile US,Communication Services
+TSLA,Tesla,Consumer Discretionary
+TXN,Texas Instruments,Information Technology
+UNH,UnitedHealth Group,Health Care
+UNP,Union Pacific,Industrials
+UPS,United Parcel Service,Industrials
+USB,U.S. Bank,Financials
+V,Visa,Information Technology
+VZ,Verizon,Communication Services
+WFC,Wells Fargo,Financials
+WMT,Walmart,Consumer Staples
+XOM,ExxonMobil,Energy
