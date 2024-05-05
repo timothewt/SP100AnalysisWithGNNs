@@ -1,4 +1,4 @@
 .venv/
 .idea/
-data/SP100/processed/
-data/SP100/forecasting_processed/
+.data/SP100/processed/
+.data/SP100/forecasting_processed/
