@@ -1,4 +1,6 @@
 .venv/
 .idea/
+
+# datasets too big to be uploaded (8Gb each)
 /data/SP100/processed/
 /data/SP100/forecasting_processed/
