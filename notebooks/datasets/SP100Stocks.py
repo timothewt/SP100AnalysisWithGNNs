@@ -1,14 +1,14 @@
-import numpy as np
 import os.path as osp
 import pandas as pd
 import torch
 from torch_geometric.data import Dataset, Data
+from notebooks.datasets.utils import get_graph_in_pyg_format
 
 
 class SP100Stocks(Dataset):
 	"""
 	Stock price data for the S&P 100 companies.
-	The graph data built from the notebook is used.
+	The graph data built from the notebooks is used.
 	"""
 
 	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv",
@@ -33,27 +33,18 @@ class SP100Stocks(Dataset):
 		pass
 
 	def process(self) -> None:
-		values = pd.read_csv('../data/SP100/raw/values.csv').set_index(['Symbol', 'Date'])
-		adj = np.load('../data/SP100/raw/adj.npy')
-		nodes_nb, edge_nb = len(adj), np.count_nonzero(adj) // 2
-		x = torch.tensor(
-			values.drop(columns=["Close"]).to_numpy().reshape((nodes_nb, -1, values.shape[1] - 1))
+		x, close_prices, edge_index, edge_weight = get_graph_in_pyg_format(
+			values_path='../data/SP100/raw/values.csv',
+			adj_path='../data/SP100/raw/adj.npy',
 		)
-		x = np.swapaxes(x, 1, 2)
-		close_prices = torch.tensor(
-			values[["Close"]].to_numpy().reshape((nodes_nb, -1))
-		)
-		edge_index, edge_weight = torch.zeros((2, edge_nb)), torch.zeros((edge_nb,))
-		count = 0
-		for i in range(nodes_nb):
-			for j in range(i + 1, nodes_nb):
-				if (weight := adj[i, j]) != 0:
-					edge_index[0, count], edge_index[1, count] = i, j
-					edge_weight[count] = weight
-					count += 1
 		timestamps = [
-			Data(x=x[:, :, idx], edge_index=edge_index, edge_weight=edge_weight, close_price=close_prices[:, idx]) for
-			idx in range(x.shape[2])
+			Data(
+				x=x[idx, :, :],
+				edge_index=edge_index,
+				edge_weight=edge_weight,
+				close_price=close_prices[:, idx],
+			)
+			for idx in range(x.shape[0])
 		]
 		for t, timestep in enumerate(timestamps):
 			torch.save(
