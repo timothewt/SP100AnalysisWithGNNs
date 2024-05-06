@@ -12,7 +12,7 @@ class SP100StocksForecasting(Dataset):
 	"""
 
 	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv",
-				 adj_file_name: str = "adj.npy", time_window: int = 20):
+				 adj_file_name: str = "adj.npy", time_window: int = 10):
 		self.values_file_name = values_file_name
 		self.adj_file_name = adj_file_name
 		self.time_window = time_window
