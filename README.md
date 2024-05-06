@@ -23,7 +23,7 @@ To facilitate understanding and execution, the project is organized into several
 
 6. [TODO] [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Explores clustering techniques using GNNs to group similar stocks together based on various features (possible extension to the S&P500 as test dataset).
 
-7. [TODO] [Portfolio optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize a portfolio of S&P100 stocks based on historical data and GNN predictions. The goal of the agent is to outperform the S&P100 index by adjusting its portfolio to the current market.
+7. [TODO] [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.
 
 ## Dependencies
 Ensure you have the following dependencies (of the `requirements.txt` file) installed to run the notebooks smoothly:
