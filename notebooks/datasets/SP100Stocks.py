@@ -11,10 +11,11 @@ class SP100Stocks(Dataset):
 	The graph data built from the notebooks is used.
 	"""
 
-	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv",
-				 adj_file_name: str = "adj.npy"):
+	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv", adj_file_name: str = "adj.npy", past_window: int = 25, future_window: int = 1):
 		self.values_file_name = values_file_name
 		self.adj_file_name = adj_file_name
+		self.past_window = past_window
+		self.future_window = future_window
 		super().__init__(root)
 
 	@property
@@ -39,12 +40,13 @@ class SP100Stocks(Dataset):
 		)
 		timestamps = [
 			Data(
-				x=x[idx, :, :],
+				x=x[:, :, idx:idx + self.past_window],
 				edge_index=edge_index,
 				edge_weight=edge_weight,
-				close_price=close_prices[:, idx],
-			)
-			for idx in range(x.shape[0])
+				close_price=close_prices[:, idx:idx + self.past_window],
+				y=x[:, 1, idx + self.past_window:idx + self.past_window + self.future_window],
+				close_price_y=close_prices[:, idx + self.past_window:idx + self.past_window + 1],
+			) for idx in range(x.shape[2] - self.past_window - self.future_window)
 		]
 		for t, timestep in enumerate(timestamps):
 			torch.save(
@@ -53,7 +55,7 @@ class SP100Stocks(Dataset):
 
 	def len(self) -> int:
 		values = pd.read_csv(self.raw_paths[0]).set_index(['Symbol', 'Date'])
-		return len(values.loc[values.index[0][0]])
+		return len(values.loc[values.index[0][0]]) - self.past_window - self.future_window
 
 	def get(self, idx: int) -> Data:
 		data = torch.load(osp.join(self.processed_dir, f'timestep_{idx}.pt'))

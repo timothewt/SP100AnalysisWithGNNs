@@ -1,5 +1,5 @@
 # 📊 S&P100 Analysis with Graph Neural Networks 📈
-Welcome to the S&P100 Analysis with Graph Neural Networks project! This project focuses on analyzing the S&P100 stocks, which represent 100 leading U.S. stocks, utilizing the power of Graph Neural Networks (GNNs) for comprehensive insights.
+Welcome to the S&P100 Analysis with Graph Neural Networks project! This project focuses on analyzing the S&P100 stocks, which represent 100 leading U.S. stocks, using the power of Graph Neural Networks (GNNs) for comprehensive insights.
 
 ## Overview
 The project comprises two main phases:
@@ -11,19 +11,19 @@ The project comprises two main phases:
 ## Notebooks
 To facilitate understanding and execution, the project is organized into several Jupyter notebooks:
 
-1. [1-data_collection_and_preprocessing.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/1-data_collection_and_preprocessing.ipynb): This notebook provides detailed instructions and code for collecting stock data (sectors, fundamentals, historical prices).
+1. [Data collection and preprocessing](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/1-data_collection_and_preprocessing.ipynb): This notebook provides detailed instructions and code for collecting stock data (sectors, fundamentals, historical prices).
 
-2. [2-graph_creation.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/2-graph_creation.ipynb): Focuses on the creation of graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
+2. [Graph creation](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/2-graph_creation.ipynb): Focuses on the creation of graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
 
-3. [3-torch_geometric_dataset.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/3-torch_geometric_dataset.ipynb): Demonstrates how to utilize PyTorch Geometric to create datasets suitable for GNN training and evaluation.
+3. [PyTorch Geometric custom dataset](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/3-torch_geometric_dataset.ipynb): Demonstrates how to use PyTorch Geometric to create datasets suitable for GNN training and evaluation.
 
-4. [TODO] [4-stocks_clustering.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/4-stocks_clustering.ipynb): Explores clustering techniques using GNNs to group similar stocks together based on various features.
+4. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/4-stock_prices_forecasting.ipynb): Focuses on using TGCNs for forecasting variations in stock prices, enabling predictive analysis.
 
-5. [TODO] [5-stocks_link_prediction.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/5-stocks_link_prediction.ipynb): Investigates link prediction, aiming to forecast potential connections or relationships between different stocks within the S&P100.
+5. [TODO] [Stock links prediction](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/5-stock_links_prediction.ipynb): Investigates link prediction, aiming to forecast potential connections or relationships between different stocks within the S&P100 (possible extension to the S&P500 as test dataset).
 
-6. [In-process] [6-stock_variations_forecasting.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_variations_forecasting.ipynb): Focuses on using TGCNs for forecasting variations in stock prices, enabling predictive analysis.
+6. [TODO] [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Explores clustering techniques using GNNs to group similar stocks together based on various features (possible extension to the S&P500 as test dataset).
 
-7. [TODO] [7-portfolio_optimization.ipynb](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize a portfolio of S&P100 stocks based on historical data and GNN predictions.
+7. [TODO] [Portfolio optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize a portfolio of S&P100 stocks based on historical data and GNN predictions. The goal of the agent is to outperform the S&P100 index by adjusting its portfolio to the current market.
 
 ## Dependencies
 Ensure you have the following dependencies (of the `requirements.txt` file) installed to run the notebooks smoothly:

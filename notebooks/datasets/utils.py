@@ -20,7 +20,7 @@ def get_graph_in_pyg_format(values_path: str, adj_path: str) -> tuple[torch.Tens
 	x = torch.tensor(
 		values.drop(columns=["Close"]).to_numpy().reshape((nodes_nb, -1, values.shape[1] - 1)), dtype=torch.float32
 	)
-	x = x.transpose(0, 1)
+	x = x.transpose(1, 2)
 	close_prices = torch.tensor(
 		values[["Close"]].to_numpy().reshape((nodes_nb, -1)), dtype=torch.float32
 	)
@@ -34,3 +34,11 @@ def get_graph_in_pyg_format(values_path: str, adj_path: str) -> tuple[torch.Tens
 				count += 1
 
 	return x, close_prices, edge_index, edge_weight
+
+
+def get_stocks_labels() -> list[str]:
+	"""
+	Retrieves the labels (symbols) of the dataset stocks
+	:return: The list of stock labels
+	"""
+	return pd.read_csv("../data/SP100/raw/values.csv")["Symbol"].unique().tolist()
