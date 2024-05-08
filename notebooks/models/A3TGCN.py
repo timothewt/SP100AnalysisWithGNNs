@@ -17,7 +17,7 @@ class A3TGCN(nn.Module):
 			nn.Linear(hidden_size, hidden_size),
 			nn.ReLU(),
 			nn.Linear(hidden_size, 1),
-			nn.Softmax(dim=0),
+			nn.Softmax(dim=1),
 		)
 		self.out = nn.Linear(hidden_size, out_channels)
 
