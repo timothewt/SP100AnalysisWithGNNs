@@ -6,19 +6,18 @@ from torch_geometric.nn import GCNConv
 
 class GCN(nn.Module):
 	"""
-	Simple GCN model with varaiable layers nb.
-	:param in_channels: The number of input features.
-	:param layer_sizes: The number of hidden units in each layer.
+	Simple two layers GCN model.
 	"""
-	def __init__(self, in_channels: int, layer_sizes: list[int] = None):
+
+	def __init__(self, in_channels: int, layer_sizes: list[int] = None, bias: bool = True):
 		super(GCN, self).__init__()
 		layer_sizes = layer_sizes or [32, 32]
 		self.convs = nn.ModuleList([
-				GCNConv(in_channels, layer_sizes[0]),
-			] + [
-				GCNConv(layer_sizes[i], layer_sizes[i + 1]) for i in range(len(layer_sizes) - 1)
-			]
-		)
+		   GCNConv(in_channels, layer_sizes[0], bias=bias),
+		] + [
+		   GCNConv(layer_sizes[i], layer_sizes[i + 1], bias=bias) for i in
+		   range(len(layer_sizes) - 1)
+   		])
 
 	def forward(self, x: torch.tensor, edge_index: torch.tensor, edge_weight: torch.tensor) -> torch.tensor:
 		"""
