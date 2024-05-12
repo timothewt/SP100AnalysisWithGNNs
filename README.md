@@ -6,7 +6,7 @@ The project comprises two main phases:
 
 1. **Data Collection and Pre-processing**: This phase involves collecting historical data, particularly stock prices, and constructing graphs to depict relationships between stocks based on factors like sector and correlation.
 
-2. **Data Analysis**: In this phase, we delve into various analyses and modeling tasks using PyTorch Geometric library for GNNs. This includes variation forecasting, stocks clustering, link prediction, and more.
+2. **Data Analysis**: In this phase, we delve into various analyses and modeling tasks using PyTorch Geometric library for GNNs. This includes variation forecasting, stocks clustering, and more.
 
 ## Notebooks
 To facilitate understanding and execution, the project is organized into several Jupyter notebooks:
@@ -19,13 +19,11 @@ To facilitate understanding and execution, the project is organized into several
 
 4. [Temporal Graph Neural Network Models](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/5-temporal_gnn_models.ipynb): Implementation of Temporal Graph Convolutional Networks, such as T-GCN and A3T-GCN.
 
-5. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_prices_forecasting.ipynb): Focuses on using TGCNs for forecasting variations in stock prices, enabling predictive analysis.
+5. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_prices_forecasting.ipynb): Focuses on using Spatio-Temporal Graph Neural Networks (STGCNNs) for forecasting future stock prices, enabling predictive analysis.
 
-6. [TODO] [Stock links prediction](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_links_prediction.ipynb): Investigates link prediction, aiming to forecast potential connections or relationships between different stocks within the S&P100 (possible extension to the S&P500 as test dataset).
+6. [TODO] [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Uses a novel architecture, a Temporal Convolutional Graph Autoencoder, to cluster stocks based on the graph structure and their historical prices.
 
-7. [TODO] [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-stocks_clustering.ipynb): Explores clustering techniques using GNNs to group similar stocks together based on various features (possible extension to the S&P500 as test dataset).
-
-8. [TODO] [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/8-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.
+7. [TODO] [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.
 
 ## Dependencies
 Ensure you have the following dependencies (of the `requirements.txt` file) installed to run the notebooks smoothly:
