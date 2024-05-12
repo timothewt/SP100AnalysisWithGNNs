@@ -8,7 +8,6 @@ class DCGNN(nn.Module):
 	"""
 	DCGNN model from https://arxiv.org/pdf/1707.01926.
 	"""
-
 	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2):
 		super(DCGNN, self).__init__()
 		self.hidden_size = hidden_size

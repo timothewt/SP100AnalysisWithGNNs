@@ -8,14 +8,13 @@ class GCN(nn.Module):
 	"""
 	Simple two layers GCN model.
 	"""
-
-	def __init__(self, in_channels: int, layer_sizes: list[int] = None, bias: bool = True):
+	def __init__(self, in_channels: int, layer_sizes: list[int] = None, bias: bool = True, improved: bool = False):
 		super(GCN, self).__init__()
 		layer_sizes = layer_sizes or [32, 32]
 		self.convs = nn.ModuleList([
-		   GCNConv(in_channels, layer_sizes[0], bias=bias),
+		   GCNConv(in_channels, layer_sizes[0], bias=bias, improved=improved),
 		] + [
-		   GCNConv(layer_sizes[i], layer_sizes[i + 1], bias=bias) for i in
+		   GCNConv(layer_sizes[i], layer_sizes[i + 1], bias=bias, improved=improved) for i in
 		   range(len(layer_sizes) - 1)
    		])
 
@@ -27,6 +26,6 @@ class GCN(nn.Module):
 		:param edge_weight: The edge weight of the graph (Edges_nb,)
 		:return: The hidden state of the GCN h_t (Nodes_nb, Hidden_size)
 		"""
-		for conv in self.convs:
+		for conv in self.convs[:-1]:
 			x = F.relu(conv(x, edge_index, edge_weight))
-		return x
+		return self.convs[-1](x, edge_index, edge_weight)

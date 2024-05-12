@@ -9,7 +9,6 @@ class DCGRUCell(nn.Module):
 	"""
 	DCRNN Cell for one timestep, from https://arxiv.org/pdf/1707.01926.
 	"""
-
 	def __init__(self, in_channels: int, hidden_size: int):
 		super(DCGRUCell, self).__init__()
 		self.gcn_r = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)

@@ -1,4 +1,6 @@
 import os.path as osp
+from typing import Callable
+
 import pandas as pd
 import torch
 from torch_geometric.data import Dataset, Data
@@ -11,12 +13,12 @@ class SP100Stocks(Dataset):
 	The graph data built from the notebooks is used.
 	"""
 
-	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv", adj_file_name: str = "adj.npy", past_window: int = 25, future_window: int = 1):
+	def __init__(self, root: str = "../data/SP100/", values_file_name: str = "values.csv", adj_file_name: str = "adj.npy", past_window: int = 25, future_window: int = 1, force_reload: bool = False, transform: Callable = None):
 		self.values_file_name = values_file_name
 		self.adj_file_name = adj_file_name
 		self.past_window = past_window
 		self.future_window = future_window
-		super().__init__(root)
+		super().__init__(root, force_reload=force_reload, transform=transform)
 
 	@property
 	def raw_file_names(self) -> list[str]:
@@ -45,7 +47,7 @@ class SP100Stocks(Dataset):
 				edge_weight=edge_weight,
 				close_price=close_prices[:, idx:idx + self.past_window],
 				y=x[:, 1, idx + self.past_window:idx + self.past_window + self.future_window],
-				close_price_y=close_prices[:, idx + self.past_window:idx + self.past_window + 1],
+				close_price_y=close_prices[:, idx + self.past_window:idx + self.past_window + self.future_window],
 			) for idx in range(x.shape[2] - self.past_window - self.future_window)
 		]
 		for t, timestep in enumerate(timestamps):

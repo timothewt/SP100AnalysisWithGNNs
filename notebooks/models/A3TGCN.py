@@ -8,7 +8,6 @@ class A3TGCN(nn.Module):
 	"""
 	A3T-GCN model from https://arxiv.org/pdf/2006.11583.
 	"""
-
 	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2):
 		super(A3TGCN, self).__init__()
 		self.hidden_size = hidden_size
