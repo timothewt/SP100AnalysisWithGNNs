@@ -8,14 +8,17 @@ class TGCN(nn.Module):
 	"""
 	T-GCN model from https://arxiv.org/pdf/1811.05320.
 	"""
-	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2):
+	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2, output_activation: nn.Module = None):
 		super(TGCN, self).__init__()
 		self.hidden_size = hidden_size
 		self.layers_nb = max(1, layers_nb)
 		self.cells = nn.ModuleList(
 			[TGCNCell(in_channels, hidden_size)] + [TGCNCell(hidden_size, hidden_size) for _ in range(self.layers_nb - 1)]
 		)
-		self.out = nn.Linear(hidden_size, out_channels)
+		self.out = nn.Sequential(
+			nn.Linear(hidden_size, out_channels),
+			output_activation if output_activation is not None else nn.Identity(),
+		)
 
 	def forward(self, x: torch.tensor, edge_index: torch.tensor, edge_weight: torch.tensor) -> torch.tensor:
 		"""
