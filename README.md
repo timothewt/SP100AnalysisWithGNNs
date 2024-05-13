@@ -1,5 +1,5 @@
 # 📊 S&P100 Analysis with Graph Neural Networks 📈
-Welcome to the S&P100 Analysis with Graph Neural Networks project! This project focuses on analyzing the S&P100 stocks, which represent 100 leading U.S. stocks, using the power of Graph Neural Networks (GNNs) for comprehensive insights.
+This project focuses on analyzing the S&P100 stocks, which represent 100 leading U.S. stocks, using the power of Graph Neural Networks (GNNs) for comprehensive insights.
 
 ## Overview
 The project comprises two main phases:
