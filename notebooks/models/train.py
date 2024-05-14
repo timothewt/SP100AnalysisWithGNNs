@@ -36,6 +36,7 @@ def test_iteration(model: nn.Module, criterion: nn.Module, test_dataloader: Data
 	:param writer: Tensorboard writer
 	:param measure_acc: Whether to measure accuracy or not (for classification tasks)
 	"""
+	model.eval()
 	for idx, data in enumerate(test_dataloader):
 		out = model(data.x, data.edge_index, data.edge_weight)
 		loss = criterion(out, data.y)
@@ -57,6 +58,7 @@ def train_iteration(model: nn.Module, optimizer: optim.Optimizer, pbar: trange, 
 	:param writer: Tensorboard writer
 	:param measure_acc: Whether to measure accuracy or not (for classification tasks)
 	"""
+	model.train()
 	for idx, data in enumerate(train_dataloader):
 		optimizer.zero_grad()
 		out = model(data.x, data.edge_index, data.edge_weight)

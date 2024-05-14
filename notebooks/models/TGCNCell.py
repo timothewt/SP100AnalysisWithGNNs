@@ -3,15 +3,19 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from notebooks.models.GCN import GCN
+from notebooks.models.GAT import GAT
 
 
 class TGCNCell(nn.Module):
 	"""
 	T-GCN Cell for one timestep, from https://arxiv.org/pdf/1811.05320.
 	"""
-	def __init__(self, in_channels: int, hidden_size: int):
+	def __init__(self, in_channels: int, hidden_size: int, use_gat: bool = True):
 		super(TGCNCell, self).__init__()
-		self.gcn = GCN(in_channels, [hidden_size, hidden_size])
+		if use_gat:
+			self.gcn = GAT(in_channels, [hidden_size, hidden_size])
+		else:
+			self.gcn = GCN(in_channels, [hidden_size, hidden_size])
 		self.lin_u = nn.Linear(2 * hidden_size + in_channels, hidden_size)
 		self.lin_r = nn.Linear(2 * hidden_size + in_channels, hidden_size)
 		self.lin_c = nn.Linear(2 * hidden_size + in_channels, hidden_size)

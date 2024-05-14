@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from notebooks.models.GAT import GAT
 from notebooks.models.GCN import GCN
 
 
@@ -9,14 +10,18 @@ class DCGRUCell(nn.Module):
 	"""
 	DCRNN Cell for one timestep, from https://arxiv.org/pdf/1707.01926.
 	"""
-	def __init__(self, in_channels: int, hidden_size: int):
+	def __init__(self, in_channels: int, hidden_size: int, use_gat: bool = True):
 		super(DCGRUCell, self).__init__()
-		self.gcn_r = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
-		self.gcn_u = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
-		self.gcn_c = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+		if use_gat:
+			self.gcn_r = GAT(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+			self.gcn_u = GAT(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+			self.gcn_c = GAT(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+		else:
+			self.gcn_r = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+			self.gcn_u = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
+			self.gcn_c = GCN(in_channels + hidden_size, [hidden_size, hidden_size], bias=True)
 
-	def forward(self, x: torch.tensor, edge_index: torch.tensor, edge_weight: torch.tensor,
-				h: torch.tensor) -> torch.tensor:
+	def forward(self, x: torch.tensor, edge_index: torch.tensor, edge_weight: torch.tensor, h: torch.tensor) -> torch.tensor:
 		"""
 		Performs a forward pass on a single DCRNN cell.
 		:param x: The feature matrix of the graph X_t (Nodes_nb, Features_nb)

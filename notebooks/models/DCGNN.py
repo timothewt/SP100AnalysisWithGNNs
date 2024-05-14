@@ -8,13 +8,12 @@ class DCGNN(nn.Module):
 	"""
 	DCGNN model from https://arxiv.org/pdf/1707.01926.
 	"""
-	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2, output_activation: nn.Module = None):
+	def __init__(self, in_channels: int, out_channels: int, hidden_size: int, layers_nb: int = 2, output_activation: nn.Module = None, use_gat: bool = True):
 		super(DCGNN, self).__init__()
 		self.hidden_size = hidden_size
 		self.layers_nb = max(1, layers_nb)
 		self.cells = nn.ModuleList(
-			[DCGRUCell(in_channels, hidden_size)] + [DCGRUCell(hidden_size, hidden_size) for _ in
-													 range(self.layers_nb - 1)]
+			[DCGRUCell(in_channels, hidden_size, use_gat=use_gat)] + [DCGRUCell(hidden_size, hidden_size, use_gat=use_gat) for _ in range(self.layers_nb - 1)]
 		)
 		self.out = nn.Sequential(
 			nn.Linear(hidden_size, out_channels),

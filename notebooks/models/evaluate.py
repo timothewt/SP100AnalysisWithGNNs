@@ -32,6 +32,7 @@ def plot_regression(model: nn.Module, data: Data, title: str = None) -> None:
 	:param data: Data to test on
 	:param title: Title of the plot
 	"""
+	model.eval()
 	fig, axs = plt.subplots(2, 2, figsize=(15, 10))
 	fig.suptitle(title)
 	out = model(data.x, data.edge_index, data.edge_weight)

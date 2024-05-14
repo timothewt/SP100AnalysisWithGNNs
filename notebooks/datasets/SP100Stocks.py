@@ -46,7 +46,7 @@ class SP100Stocks(Dataset):
 				edge_index=edge_index,
 				edge_weight=edge_weight,
 				close_price=close_prices[:, idx:idx + self.past_window],
-				y=x[:, 1, idx + self.past_window:idx + self.past_window + self.future_window],
+				y=x[:, 0, idx + self.past_window:idx + self.past_window + self.future_window],
 				close_price_y=close_prices[:, idx + self.past_window:idx + self.past_window + self.future_window],
 			) for idx in range(x.shape[2] - self.past_window - self.future_window)
 		]

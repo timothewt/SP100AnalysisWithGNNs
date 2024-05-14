@@ -6,7 +6,7 @@ The project comprises two main phases:
 
 1. **Data Collection and Pre-processing**: This phase involves collecting historical data, particularly stock prices, and constructing graphs to depict relationships between stocks based on factors like sector and correlation.
 
-2. **Data Analysis**: In this phase, we delve into various analyses and modeling tasks using PyTorch Geometric library for GNNs. This includes variation forecasting, stocks clustering, and more.
+2. **Data Analysis**: In this phase, we delve into various analyses and modeling tasks using PyTorch Geometric library for GNNs. This includes price forecasting, stocks clustering, and more.
 
 ## Notebooks
 To facilitate understanding and execution, the project is organized into several Jupyter notebooks:
@@ -21,7 +21,7 @@ To facilitate understanding and execution, the project is organized into several
 
 5. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_prices_forecasting.ipynb): Focuses on using Spatio-Temporal Graph Neural Networks (STGCNNs) for forecasting future stock prices, enabling predictive analysis.
 
-6. [TODO] [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Uses a novel architecture, a Temporal Convolutional Graph Autoencoder, to cluster stocks based on the graph structure and their historical prices.
+6. [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Uses a novel architecture - Temporal Convolutional Graph Autoencoder - to cluster stocks based on the graph structure and their historical prices.
 
 7. [TODO] [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.
 
@@ -50,5 +50,15 @@ Ensure you have the following dependencies (of the `requirements.txt` file) inst
 Contributions and feedback are welcomed!
 If you have any suggestions, improvements,
 or discover any issues, feel free to submit a pull request or open an issue in the GitHub repository.
+
+## Licence
+This project is licensed under the MIT License.
+
+## References
+
+- Ling Zhao, Yujiao Song, Chao Zhang, Yu Liu, Pu Wang, Tao Lin, Min Deng, Haifeng Li, Temporal Graph Neural Networks for Traffic Forecasting, 2018, [arXiv:1811.05320](https://arxiv.org/abs/1811.05320)
+- Jiawei Zhu, Yujiao Song, Ling Zhao, Haifeng Li, A3T-GCN: Attention Temporal Graph Convolutional Network for Traffic Forecasting, 2021, [arXiv:2006.11583](https://arxiv.org/abs/2006.11583)
+- Yaguang Li, Rose Yu, Cyrus Shahabi, Yan Liu, Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting, 2017, [arXiv:1707.01926](https://arxiv.org/abs/1707.01926)
+- Pacreau, Grégoire and Lezmi, Edmond and Xu, Jiali, Graph Neural Networks for Asset Management (December 2, 2021). Available at SSRN: [https://ssrn.com/abstract=3976168](https://ssrn.com/abstract=3976168) or [http://dx.doi.org/10.2139/ssrn.3976168](http://dx.doi.org/10.2139/ssrn.3976168)
 
 Happy analyzing! 📈🔍
