@@ -4,7 +4,7 @@ This project focuses on analyzing the S&P100 stocks, which represent 100 leading
 ## Overview
 The project is divided into several sections, each focusing on a different aspect of the S&P100 analysis:
 
-1. **Data collection, preprocessing and graph creation **: This section focuses on collecting and preprocessing the necessary data for the analysis, such as stock fundamentals, historical prices, and sector information. It also creates graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
+1. **Data collection, preprocessing and graph creation**: This section focuses on collecting and preprocessing the necessary data for the analysis, such as stock fundamentals, historical prices, and sector information. It also creates graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
 
 2. **Temporal Graph Neural Network Models**: This section focuses on implementing Temporal Graph Convolutional Networks (T-GCNs) and Attention-based Temporal Graph Convolutional Networks (A3T-GCNs) for traffic forecasting.
 
