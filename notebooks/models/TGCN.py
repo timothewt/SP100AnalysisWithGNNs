@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+from torch.nn import functional as F
 
 from notebooks.models.TGCNCell import TGCNCell
 
@@ -36,4 +37,4 @@ class TGCN(nn.Module):
 			for i, cell in enumerate(self.cells):
 				h = cell(h, edge_index, edge_weight, h_prev[i])
 				h_prev[i] = h
-		return self.out(h_prev[-1])
+		return self.out(F.leaky_relu(h_prev[-1]))

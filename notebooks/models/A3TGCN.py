@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+from torch.nn import functional as F
 
 from notebooks.models.TGCNCell import TGCNCell
 
@@ -43,4 +44,4 @@ class A3TGCN(nn.Module):
 				h = cell(h, edge_index, edge_weight, h_prev[i])
 				h_prev[i] = h
 			h_final[:, t, :] = h
-		return self.out(torch.sum(h_final * self.attention(h_final), dim=1))
+		return self.out(F.leaky_relu(torch.sum(F.leaky_relu(h_final) * self.attention(h_final), dim=1)))

@@ -60,9 +60,9 @@ def measure_accuracy(model: nn.Module, data: Data) -> float:
 	:return: Accuracy
 	"""
 	out = model(data.x, data.edge_index, data.edge_weight)
-	if out.shape[1] == 1:
+	if out.shape[1] == 1:  # Binary classification
 		return (F.sigmoid(out).round() == data.y).sum().item() / len(data.y)
-	else:
+	else:  # Multi-class classification
 		return (F.softmax(out, dim=-1).argmax(dim=-1) == data.y).sum().item() / len(data.y)
 
 

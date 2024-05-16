@@ -27,5 +27,5 @@ class GCN(nn.Module):
 		:return: The hidden state of the GCN h_t (Nodes_nb, Hidden_size)
 		"""
 		for conv in self.convs[:-1]:
-			x = F.relu(conv(x, edge_index, edge_weight))
+			x = F.leaky_relu(conv(x, edge_index, edge_weight))
 		return self.convs[-1](x, edge_index, edge_weight)
