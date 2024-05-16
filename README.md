@@ -2,11 +2,13 @@
 This project focuses on analyzing the S&P100 stocks, which represent 100 leading U.S. stocks, using the power of Graph Neural Networks (GNNs) for comprehensive insights.
 
 ## Overview
-The project comprises two main phases:
+The project is divided into several sections, each focusing on a different aspect of the S&P100 analysis:
 
-1. **Data Collection and Pre-processing**: This phase involves collecting historical data, particularly stock prices, and constructing graphs to depict relationships between stocks based on factors like sector and correlation.
+1. **Data collection, preprocessing and graph creation **: This section focuses on collecting and preprocessing the necessary data for the analysis, such as stock fundamentals, historical prices, and sector information. It also creates graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
 
-2. **Data Analysis**: In this phase, we delve into various analyses and modeling tasks using PyTorch Geometric library for GNNs. This includes price forecasting, stocks clustering, and more.
+2. **Temporal Graph Neural Network Models**: This section focuses on implementing Temporal Graph Convolutional Networks (T-GCNs) and Attention-based Temporal Graph Convolutional Networks (A3T-GCNs) for traffic forecasting.
+
+3. **Using GNNs for various tasks**: Price forecasting, stocks clustering, trend classification, and portfolio optimization.
 
 ## Notebooks
 To facilitate understanding and execution, the project is organized into several Jupyter notebooks:
@@ -23,10 +25,13 @@ To facilitate understanding and execution, the project is organized into several
 
 6. [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Uses a novel architecture - Temporal Convolutional Graph Autoencoder - to cluster stocks based on the graph structure and their historical prices.
 
-7. [TODO] [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-portfolio_optimization.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.
+7. [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-sp100_weights_optimization_via_drl.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market. **Note**: I do not have the necessary computing resources to completely train the model in this notebook. However, the code is provided for reference and is fully functional.
+
+8. [Stocks trend classification](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/8-stock_trend_classification.ipynb): Uses a Temporal Graph Convolutional Network (T-GCN) to classify the trend of S&P100 stocks (up/down) $n$ weeks ahead based on historical data.
 
 ## Dependencies
 Ensure you have the following dependencies (of the `requirements.txt` file) installed to run the notebooks smoothly:
+- Gymnasium
 - Matplotlib
 - NetworkX
 - Jupyter Notebook
@@ -35,6 +40,7 @@ Ensure you have the following dependencies (of the `requirements.txt` file) inst
 - scikit-learn
 - ta (Technical Analysis library)
 - Tensorboard
+- PyTorch
 - PyTorch Geometric
 - tqdm
 - Wikipedia

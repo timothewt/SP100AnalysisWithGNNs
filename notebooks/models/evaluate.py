@@ -3,6 +3,7 @@ import numpy as np
 from torch import nn
 from torch.nn import functional as F
 from torch_geometric.data import Data, DataLoader
+from sklearn.metrics import confusion_matrix
 
 
 def get_regression_error(model: nn.Module, dataloader: DataLoader) -> tuple[float, float, float, float]:
@@ -59,10 +60,13 @@ def measure_accuracy(model: nn.Module, data: Data) -> float:
 	:return: Accuracy
 	"""
 	out = model(data.x, data.edge_index, data.edge_weight)
-	return (F.sigmoid(out).round() == data.y).sum().item() / len(data.y)
+	if out.shape[1] == 1:
+		return (F.sigmoid(out).round() == data.y).sum().item() / len(data.y)
+	else:
+		return (F.softmax(out, dim=-1).argmax(dim=-1) == data.y).sum().item() / len(data.y)
 
 
-def get_confusion_matrix(model: nn.Module, data: Data) -> tuple[int, int, int, int]:
+def get_confusion_matrix(model: nn.Module, data: Data) -> np.ndarray:
 	"""
 	Get confusion matrix
 	:param model: Model to test
@@ -70,31 +74,9 @@ def get_confusion_matrix(model: nn.Module, data: Data) -> tuple[int, int, int, i
 	:return: Confusion matrix
 	"""
 	out = model(data.x, data.edge_index, data.edge_weight)
-	predictions = F.sigmoid(out).round()
-	tp = ((predictions == 1) & (data.y == 1)).sum().item()
-	tn = ((predictions == 0) & (data.y == 0)).sum().item()
-	fp = ((predictions == 1) & (data.y == 0)).sum().item()
-	fn = ((predictions == 0) & (data.y == 1)).sum().item()
-	return tp, tn, fp, fn
-
-
-def evaluate_classification(model: nn.Module, dataloader: DataLoader) -> tuple[float, int, int, int, int]:
-	"""
-	Evaluate classification model
-	:param model: Model to test
-	:param dataloader: Dataloader to test on
-	:return: Accuracy, True positives, True negatives, False positives, False negatives
-	"""
-	accuracy = 0
-	tp = 0
-	tn = 0
-	fp = 0
-	fn = 0
-	for data in dataloader:
-		accuracy += measure_accuracy(model, data)
-		tp_, tn_, fp_, fn_ = get_confusion_matrix(model, data)
-		tp += tp_
-		tn += tn_
-		fp += fp_
-		fn += fn_
-	return accuracy / len(dataloader), tp, tn, fp, fn
+	if out.shape[1] == 1:
+		y_pred = F.sigmoid(out).round().detach().numpy()
+	else:
+		y_pred = F.softmax(out, dim=-1).argmax(dim=-1).detach().numpy()
+	y_true = data.y.detach().numpy()
+	return confusion_matrix(y_true, y_pred)
