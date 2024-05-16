@@ -10,21 +10,21 @@ To facilitate understanding and execution, the project is organized into several
 
 1. [Data collection and preprocessing](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/1-data_collection_and_preprocessing.ipynb): This notebook provides detailed instructions and code for collecting stock data (sectors, fundamentals, historical prices).
 
-2. [Graph creation](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/2-graph_creation.ipynb): Focuses on the creation of graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
+2. [Graph creation](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/2-graph_creation.ipynb): Focuses on the creation of graphs to model relationships between S&P100 stocks based on sector and fundamentals correlation.
 
-3. [PyTorch Geometric custom dataset](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/3-torch_geometric_dataset.ipynb): Demonstrates how to use PyTorch Geometric to create datasets suitable for GNN training and evaluation.
+3. [PyTorch Geometric custom dataset](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/3-torch_geometric_dataset.ipynb): Demonstrates how to use PyTorch Geometric to create datasets suitable for GNN training and evaluation.
 
-4. [Temporal Graph Neural Network Models](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/5-temporal_gnn_models.ipynb): Implementation of Temporal Graph Convolutional Networks, such as T-GCN and A3T-GCN.
+4. [Temporal Graph Neural Network Models](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/4-temporal_gnn_models.ipynb): Implementation of Temporal Graph Convolutional Networks, such as T-GCN and A3T-GCN.
 
-5. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stock_prices_forecasting.ipynb): Focuses on using Spatio-Temporal Graph Neural Networks (STGCNNs) for forecasting future stock prices, enabling predictive analysis.
+5. [Stock prices forecasting](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/5-stock_prices_forecasting.ipynb): Focuses on using Spatio-Temporal Graph Neural Networks (STGCNNs) for forecasting future stock prices, enabling predictive analysis.
 
-6. [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/6-stocks_clustering.ipynb): Uses a novel architecture - Temporal Convolutional Graph Autoencoder - to cluster stocks based on the graph structure and their historical prices.
+6. [Stocks clustering with Deep Graph Clustering](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/6-stocks_clustering.ipynb): Uses a novel architecture - Temporal Convolutional Graph Autoencoder - to cluster stocks based on the graph structure and their historical prices.
 
-7. [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/7-sp100_weights_optimization_via_drl.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.<br> **Note**: I do not have the necessary computing resources to completely train the model in this notebook. However, the code is provided for reference and is fully functional.
+7. [S&P100 weights optimization via Deep Reinforcement Learning](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/7-sp100_weights_optimization_via_drl.ipynb): Uses Deep Reinforcement Learning to optimize the weights of the 100 stocks in the S&P100 based on historical data and GNN predictions. The goal of the agent is to outperform the equal weights S&P100 index by adjusting its portfolio to the current market.<br> **Note**: I do not have the necessary computing resources to completely train the model in this notebook. However, the code is provided for reference and is fully functional.
 
-8. [Stocks trend classification](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/8-stock_trend_classification.ipynb): Uses a Temporal Graph Convolutional Network (T-GCN) to classify the trend of S&P100 stocks (up/down) $n$ weeks ahead based on historical data.
+8. [Stocks trend classification](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/8-stock_trend_classification.ipynb): Uses a Temporal Graph Convolutional Network (T-GCN) to classify the trend of S&P100 stocks (up/down) $n$ weeks ahead based on historical data.
 
-9. [Optimal portfolio selection](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/9-optimal_portfolio_selection.ipynb): Illustrates how the previously trained classifier can help optimize a portfolio by selecting stocks with the highest predicted returns. The stocks with the highest probability of going up are selected to form the portfolio, and compared to the market performance.
+9. [Optimal portfolio selection](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/9-optimal_portfolio_selection.ipynb): Illustrates how the previously trained classifier can help optimize a portfolio by selecting stocks with the highest predicted returns. The stocks with the highest probability of going up are selected to form the portfolio, and compared to the market performance.
 
 ## Dependencies
 Ensure you have the following dependencies (of the `requirements.txt` file) installed to run the notebooks smoothly:
