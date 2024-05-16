@@ -6,7 +6,7 @@ This project focuses on analyzing the S&P100 stocks, which represent 100 leading
 The project focuses on leveraging Graph Neural Networks (GNNs) to analyze the S&P100 stocks, representing 100 leading U.S. stocks, providing comprehensive insights into their relationships and behaviors. Through various notebooks, it covers data collection, preprocessing, graph creation, dataset preparation, model implementation, and applications such as forecasting, clustering, trend classification, and portfolio optimization. The aim is to enable users to gain deeper understanding and make informed decisions in the dynamic landscape of financial markets.
 
 ## Notebooks
-To facilitate understanding and execution, the project is organized into several Jupyter notebooks:
+For easy understanding and execution, the project is organized into several Jupyter notebooks:
 
 1. [Data collection and preprocessing](https://github.com/timothewt/SP100_Analysis_with_GNNs/blob/master/notebooks/1-data_collection_and_preprocessing.ipynb): This notebook provides detailed instructions and code for collecting stock data (sectors, fundamentals, historical prices).
 
